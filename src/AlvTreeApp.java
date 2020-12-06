@@ -17,25 +17,40 @@ public class AlvTreeApp {
         a.addWithoutBalance(47);
         a.addWithoutBalance(32);
 
-        printTree(a,24,24);
+        printTree(a,10,24);
         a.clear();
+
+//        a.addWithoutBalance(10);
+//        a.addWithoutBalance(12);
+//        a.addWithoutBalance(10);
+//        a.addWithoutBalance(11);
+//        a.addWithoutBalance(10);
+//        printTree(a,10,24);
+//        a.clear();
 
 
         //TODO: INSERT 10 ELEMENTOS BALANCEADOS
-//
-//        System.out.println("\n\n---------- ÁRVORE A ----------\n\n");
-//        a.add(24);
-//        a.add(29);
-//        a.add(46);
-//        a.add(93);
-//        a.add(14);
-//        a.add(28);
-//        a.add(49);
-//        a.add(79);
-//        a.add(47);
-//        a.add(32);
 
-//        printTree(a,24,24);
+//        a.add(10);
+//        a.add(12);
+//        a.add(10);
+//        a.add(11);
+//        a.add(10);
+//        printTree(a,10,24);
+//
+        System.out.println("\n\n---------- ÁRVORE A ----------\n\n");
+        a.add(24);
+        a.add(29);
+        a.add(46);
+        a.add(93);
+        a.add(14);
+        a.add(28);
+        a.add(49);
+        a.add(79);
+        a.add(47);
+        a.add(32);
+
+        printTree(a,24,24);
 
         //TODO: INSERT 10 ELEMENTOS
 

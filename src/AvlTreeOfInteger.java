@@ -126,15 +126,24 @@ public class AvlTreeOfInteger {
     }
 
     public void add(int element) {
+        boolean added = false;
         Node newNode = new Node(element);
-        add(this.root, newNode);
-        count++;
-        System.out.println(String.format("---- ELEMENTO INSERIDO %d ----\n", element) + printArvore() + "------------------------------\n");
+        added = add(this.root, newNode, added);
+
+        if(added){
+            count++;
+            balanceCalc();
+            System.out.println(String.format("---- ELEMENTO INSERIDO %d ----\n", element) + printArvore() + "------------------------------\n");
+        }
+        else {
+            System.out.println("Árvore já possui o elemento: " + element);
+        }
     }
 
-    private void add(Node n, Node newNode) {
+    private boolean add(Node n, Node newNode, boolean added) {
         if (n == null) {
             this.root = newNode;
+            added = true;
         }
         else {
             if (newNode.getElement() < n.getElement()) {
@@ -142,9 +151,10 @@ public class AvlTreeOfInteger {
                     n.setLeft(newNode);
                     newNode.setFather(n);
                     toBalance(n);
+                    added =  true;
                 }
                 else {
-                    add(n.getLeft(), newNode);
+                    added = add(n.getLeft(), newNode, added);
                 }
             }
             else if (newNode.getElement() > n.getElement()) {
@@ -152,50 +162,68 @@ public class AvlTreeOfInteger {
                     n.setRight(newNode);
                     newNode.setFather(n);
                     toBalance(n);
+                    added = true;
                 }
                 else {
-                    add(n.getRight(), newNode);
+                    added = add(n.getRight(), newNode, added);
                 }
             }
-            //TODO: O nó já existe, lançar exceção
+            else if (newNode.getElement() == n.getElement()) {
+                //TODO: O nó já existe, lançar exceção
+                added = false;
+            }
         }
+        return added;
     }
 
     /////////////////////////////////////////////////////////////////////////////////
 
     public void addWithoutBalance(int element){
+        boolean added = false;
         Node newNode = new Node(element);
-        addWithoutBalance(this.root, newNode);
-        count++;
-        balanceCalc();
-        System.out.println(String.format("---- ELEMENTO INSERIDO %d ----\n", element) + printArvore() + "------------------------------\n");
+        added = addWithoutBalance(this.root, newNode, added);
+        if(added){
+            count++;
+            balanceCalc();
+            System.out.println(String.format("---- ELEMENTO INSERIDO %d ----\n", element) + printArvore() + "------------------------------\n");
+        }
+        else{
+            System.out.println("Árvore já possui o elemento: " + element);
+        }
     }
 
-    private void addWithoutBalance(Node n, Node newNode){
+    private boolean addWithoutBalance(Node n, Node newNode, boolean added){
         if (n == null) {
             this.root = newNode;
+            added = true;
         }
-        else {
+        else{
             if (newNode.getElement() < n.getElement()) {
                 if (n.getLeft() == null) {
                     n.setLeft(newNode);
                     newNode.setFather(n);
+                    added = true;
                 }
                 else {
-                    addWithoutBalance(n.getLeft(), newNode);
+                    added = addWithoutBalance(n.getLeft(), newNode, added);
                 }
             }
             else if (newNode.getElement() > n.getElement()) {
                 if (n.getRight() == null) {
                     n.setRight(newNode);
                     newNode.setFather(n);
+                    added = true;
                 }
                 else {
-                    addWithoutBalance(n.getRight(), newNode);
+                    added = addWithoutBalance(n.getRight(), newNode, added);
                 }
             }
-            //TODO: O nó já existe, lançar exceção
+            else if(newNode.getElement() == n.getElement()){
+                //TODO: O nó já existe, lançar exceção
+                added = false;
+            }
         }
+        return added;
     }
 
     public void balanceCalc(){
