@@ -129,13 +129,10 @@ public class AvlTreeOfInteger {
         boolean added = false;
         Node newNode = new Node(element);
         added = add(this.root, newNode, added);
+        count++;
 
-        if(added){
-            count++;
-            balanceCalc();
-            System.out.println(String.format("---- ELEMENTO INSERIDO %d ----\n", element) + printArvore() + "------------------------------\n");
-        }
-        else {
+        if(!added){
+            count--;
             System.out.println("Árvore já possui o elemento: " + element);
         }
     }
@@ -177,54 +174,6 @@ public class AvlTreeOfInteger {
     }
 
     /////////////////////////////////////////////////////////////////////////////////
-
-    public void addWithoutBalance(int element){
-        boolean added = false;
-        Node newNode = new Node(element);
-        added = addWithoutBalance(this.root, newNode, added);
-        if(added){
-            count++;
-            balanceCalc();
-            System.out.println(String.format("---- ELEMENTO INSERIDO %d ----\n", element) + printArvore() + "------------------------------\n");
-        }
-        else{
-            System.out.println("Árvore já possui o elemento: " + element);
-        }
-    }
-
-    private boolean addWithoutBalance(Node n, Node newNode, boolean added){
-        if (n == null) {
-            this.root = newNode;
-            added = true;
-        }
-        else{
-            if (newNode.getElement() < n.getElement()) {
-                if (n.getLeft() == null) {
-                    n.setLeft(newNode);
-                    newNode.setFather(n);
-                    added = true;
-                }
-                else {
-                    added = addWithoutBalance(n.getLeft(), newNode, added);
-                }
-            }
-            else if (newNode.getElement() > n.getElement()) {
-                if (n.getRight() == null) {
-                    n.setRight(newNode);
-                    newNode.setFather(n);
-                    added = true;
-                }
-                else {
-                    added = addWithoutBalance(n.getRight(), newNode, added);
-                }
-            }
-            else if(newNode.getElement() == n.getElement()){
-                //TODO: O nó já existe, lançar exceção
-                added = false;
-            }
-        }
-        return added;
-    }
 
     public void balanceCalc(){
         balanceCalc(root);
@@ -337,22 +286,15 @@ public class AvlTreeOfInteger {
         if (balFactor == -2) {
             if (height(aux.getLeft().getLeft()) >= height(aux.getLeft().getRight())) {
                 aux = simpleRightRotation(aux);
-                System.out.println("Rotação Simples Direita");
-
-
             } else {
                 aux = doubleLeftRotation(aux);
-                System.out.println("Rotação Dupla Esquerda");
             }
         }
         else if (balFactor == 2) {
             if (height(aux.getRight().getRight()) >= height(aux.getRight().getLeft())) {
                 aux = simpleLeftRotation(aux);
-                System.out.println("Rotação Simples Esquerda");
-
             } else {
                 aux = doubleRightRotation(aux);
-                System.out.println("Rotação Dupla Direita");
             }
         }
         if (aux.getFather() != null) {

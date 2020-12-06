@@ -4,40 +4,8 @@ public class AlvTreeApp {
         AvlTreeOfInteger b = new AvlTreeOfInteger();
         AvlTreeOfInteger c = new AvlTreeOfInteger();
 
-        //TODO: INSERT 10 ELEMENTOS NÃO BALANCEADOS
-
-        a.addWithoutBalance(24);
-        a.addWithoutBalance(29);
-        a.addWithoutBalance(46);
-        a.addWithoutBalance(93);
-        a.addWithoutBalance(14);
-        a.addWithoutBalance(28);
-        a.addWithoutBalance(49);
-        a.addWithoutBalance(79);
-        a.addWithoutBalance(47);
-        a.addWithoutBalance(32);
-
-        printTree(a,10,24);
-        a.clear();
-
-//        a.addWithoutBalance(10);
-//        a.addWithoutBalance(12);
-//        a.addWithoutBalance(10);
-//        a.addWithoutBalance(11);
-//        a.addWithoutBalance(10);
-//        printTree(a,10,24);
-//        a.clear();
-
-
         //TODO: INSERT 10 ELEMENTOS BALANCEADOS
 
-//        a.add(10);
-//        a.add(12);
-//        a.add(10);
-//        a.add(11);
-//        a.add(10);
-//        printTree(a,10,24);
-//
         System.out.println("\n\n---------- ÁRVORE A ----------\n\n");
         a.add(24);
         a.add(29);
@@ -49,40 +17,42 @@ public class AlvTreeApp {
         a.add(79);
         a.add(47);
         a.add(32);
+        a.add(28);
+        a.add(79);
 
         printTree(a,24,24);
 
         //TODO: INSERT 10 ELEMENTOS
 
-//        System.out.println("\n\n---------- ÁRVORE B ----------\n\n");
-//        b.add(14);
-//        b.add(96);
-//        b.add(21);
-//        b.add(94);
-//        b.add(55);
-//        b.add(34);
-//        b.add(49);
-//        b.add(79);
-//        b.add(47);
-//        b.add(32);
-//
-//        printTree(b,14, 96);
+        System.out.println("\n\n---------- ÁRVORE B ----------\n\n");
+        b.add(14);
+        b.add(96);
+        b.add(21);
+        b.add(94);
+        b.add(55);
+        b.add(34);
+        b.add(49);
+        b.add(79);
+        b.add(47);
+        b.add(32);
+
+        printTree(b,14, 96);
 
         //TODO: INSERT 10 ELEMENTOS
 
-//        System.out.println("\n\n---------- ÁRVORE C ----------\n\n");
-//        c.add(42);
-//        c.add(5);
-//        c.add(51);
-//        c.add(73);
-//        c.add(41);
-//        c.add(34);
-//        c.add(49);
-//        c.add(79);
-//        c.add(47);
-//        c.add(32);
-//
-//        printTree(c,42, 31);
+        System.out.println("\n\n---------- ÁRVORE C ----------\n\n");
+        c.add(42);
+        c.add(5);
+        c.add(51);
+        c.add(73);
+        c.add(41);
+        c.add(34);
+        c.add(49);
+        c.add(79);
+        c.add(47);
+        c.add(32);
+
+        printTree(c,42, 31);
     }
 
     public static void printTree(AvlTreeOfInteger tree, int son, int element){
