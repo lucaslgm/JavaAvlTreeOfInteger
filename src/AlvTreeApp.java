@@ -18,53 +18,65 @@ public class AlvTreeApp {
         a.add(79);
         a.add(47);
         a.add(32);
-        a.add(28);
-        a.add(79);
 
-        printTree(a,24,24);
 
-        //TODO: INSERT 10 ELEMENTOS
+        a.add(96);
+        a.add(21);
+        a.add(94);
+        a.add(55);
+        a.add(34);
+        a.add(42);
+        a.add(5);
+        a.add(51);
+        a.add(73);
+        a.add(41);
+        Integer pai = a.getParent(94);
+        System.out.println(pai);
 
-        System.out.println("\n\n---------- ÁRVORE B ----------\n\n");
-        b.add(14);
-        b.add(96);
-        b.add(21);
-        b.add(94);
-        b.add(55);
-        b.add(34);
-        b.add(49);
-        b.add(79);
-        b.add(47);
-        b.add(32);
-
-        printTree(b,14, 96);
-
-        //TODO: INSERT 10 ELEMENTOS
-
-        System.out.println("\n\n---------- ÁRVORE C ----------\n\n");
-        c.add(42);
-        c.add(5);
-        c.add(51);
-        c.add(73);
-        c.add(41);
-        c.add(34);
-        c.add(49);
-        c.add(79);
-        c.add(47);
-        c.add(32);
-        printTree(c,42, 47);
-
-        System.out.println("\n\n---------- ÁRVORE PROFESSORA ----------\n\n");
-        d.add(1);
-        d.add(2);
-        d.add(3);
-        d.add(4);
-        d.add(5);
-        d.add(6);
-        d.add(7);
-        d.add(8);
-
-        printTree(d,6, 7);
+//        printTree(a,79,930);
+//
+//        //TODO: INSERT 10 ELEMENTOS
+//
+//        System.out.println("\n\n---------- ÁRVORE B ----------\n\n");
+//        b.add(14);
+//        b.add(96);
+//        b.add(21);
+//        b.add(94);
+//        b.add(55);
+//        b.add(34);
+//        b.add(49);
+//        b.add(79);
+//        b.add(47);
+//        b.add(32);
+//
+//        printTree(b,14, 96);
+//
+//        //TODO: INSERT 10 ELEMENTOS
+//
+//        System.out.println("\n\n---------- ÁRVORE C ----------\n\n");
+//        c.add(42);
+//        c.add(5);
+//        c.add(51);
+//        c.add(73);
+//        c.add(41);
+//        c.add(34);
+//        c.add(49);
+//        c.add(79);
+//        c.add(47);
+//        c.add(32);
+//        printTree(c,42, 47);
+//
+//        System.out.println("\n\n---------- ÁRVORE PROFESSORA ----------\n\n");
+//        d.add(1);
+//        d.add(2);
+//        d.add(3);
+//        d.add(4);
+//        d.add(5);
+//        d.add(6);
+//        d.add(7);
+//        d.add(8);
+//
+//        printTree(d,6, 7);
     }
 
     public static void printTree(AvlTreeOfInteger tree, int son, int element){

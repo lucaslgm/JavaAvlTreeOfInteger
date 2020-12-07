@@ -7,19 +7,23 @@ public class AvlTreeOfInteger {
         this.count = 0;
     }
 
+    //O(1)
     public int size() {
         return count;
     }
 
+    //O(1)
     public boolean isEmpty() {
         return (root == null);
     }
 
+    //O(1)
     public void clear() {
         count = 0;
         root = null;
     }
 
+    //O(n²)
     public Integer height(){
         return height(root);
     }
@@ -43,6 +47,7 @@ public class AvlTreeOfInteger {
         return -1;
     }
 
+    //O(1)
     public boolean isBalanced() {
         return isBalanced(root);
     }
@@ -60,11 +65,13 @@ public class AvlTreeOfInteger {
         return true;
     }
 
+    //O(1)
     public boolean contains(Integer element) {
         Node aux = searchNodeRef(element, root);
         return (aux != null);
     }
 
+    //O(1)
     public Integer getParent(Integer element) {
         Node aux = searchNodeRef(element, root);
         if(aux != null){
@@ -75,6 +82,7 @@ public class AvlTreeOfInteger {
         return null;
     }
 
+    //O(log n)
     private Node searchNodeRef(Integer element, Node target) {
         if (element == null || target == null) {
             return null;
@@ -91,6 +99,7 @@ public class AvlTreeOfInteger {
         }
     }
 
+    //O(n log n)
     public void add(int element) {
         boolean added = false;
         Node newNode = new Node(element);
@@ -141,35 +150,8 @@ public class AvlTreeOfInteger {
 
     /////////////////////////////////////////////////////////////////////////////////
 
-    public void balanceCalc(){
-        balanceCalc(root);
-    }
-
-    public void balanceCalc(Node aux){
-        if(aux.getRight() == null && aux.getLeft() == null){
-            aux.setBalFactor(0);
-        }
-        else if(aux.getRight() != null && aux.getLeft() == null){
-            aux.setBalFactor(height(aux.getRight()));
-        }
-        else if(aux.getRight() == null){
-            aux.setBalFactor(-height(aux.getLeft()));
-        }
-        else{
-            aux.setBalFactor(height(aux.getRight()) - height(aux.getLeft()));
-        }
-        if(aux.getRight() != null){
-            balanceCalc(aux.getRight());
-        }
-        if(aux.getLeft() != null){
-            balanceCalc(aux.getLeft());
-        }
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////
-
+    //0(1)
     public Node simpleLeftRotation(Node aux) {
-
         Node right = aux.getRight();
         right.setFather(aux.getFather());
 
@@ -240,11 +222,12 @@ public class AvlTreeOfInteger {
         return simpleLeftRotation(aux);
     }
 
+    //O(n log n)
     private void setBalFactor(Node node) {
         int balFactor = height(node.getRight()) - height(node.getLeft());
         node.setBalFactor(balFactor);
     }
-
+    //O(n log n)
     private void toBalance(Node aux) {
         setBalFactor(aux);
         int balFactor = aux.getBalFactor();
@@ -273,6 +256,7 @@ public class AvlTreeOfInteger {
 
     ///////////////////////////////////////////////////////////////////////////////////
 
+    //O(1)
     public LinkedListOfInteger positionsPre() {
         LinkedListOfInteger res = new LinkedListOfInteger();
         positionsPreAux(root, res);
