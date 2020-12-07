@@ -7,40 +7,6 @@ public class AvlTreeOfInteger {
         this.count = 0;
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////
-    //TODO método de depuração
-    public String printArvore(){
-        return printArvore(0, root);
-    }
-
-    private String printArvore(int level, Node aux){
-        String  father = aux.getFather() != null ? Integer.toString(aux.getFather().getElement()) : "NULL";
-        String str = String.format("[%d] (%d) <"+father+">\n", aux.getElement(), aux.getBalFactor());
-        for (int i=0; i<level; i++){
-            str += "\t";
-        }
-        if (aux.getLeft() != null){
-            str += "+-ESQ: "+ printArvore(level + 1, aux.getLeft());
-        }
-        else{
-            str += "+-ESQ: NULL";
-        }
-        str += "\n";
-        for (int i=0; i<level; i++){
-            str += "\t";
-        }
-        if (aux.getRight() != null){
-
-            str += "+-DIR: "+ printArvore(level + 1, aux.getRight());
-        }
-        else{
-            str += "+-DIR: NULL";
-        }
-        str += "\n";
-        return str;
-    }
-    //////////////////////////////////////////////////////////////////////////////////
-
     public int size() {
         return count;
     }

@@ -57,7 +57,6 @@ public class AlvTreeApp {
 
     public static void printTree(AvlTreeOfInteger tree, int son, int element){
         if(!tree.isEmpty()) {
-//            System.out.println(tree.printArvore());
             System.out.println("\n------------------------------------\n");
             System.out.println("Altura: " + tree.height());
             System.out.println("Tamanho: " + tree.size());
