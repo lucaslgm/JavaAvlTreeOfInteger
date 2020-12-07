@@ -3,6 +3,7 @@ public class AlvTreeApp {
         AvlTreeOfInteger a = new AvlTreeOfInteger();
         AvlTreeOfInteger b = new AvlTreeOfInteger();
         AvlTreeOfInteger c = new AvlTreeOfInteger();
+        AvlTreeOfInteger d = new AvlTreeOfInteger();
 
         //TODO: INSERT 10 ELEMENTOS BALANCEADOS
 
@@ -51,8 +52,19 @@ public class AlvTreeApp {
         c.add(79);
         c.add(47);
         c.add(32);
+        printTree(c,42, 47);
 
-        printTree(c,42, 31);
+        System.out.println("\n\n---------- ÁRVORE PROFESSORA ----------\n\n");
+        d.add(1);
+        d.add(2);
+        d.add(3);
+        d.add(4);
+        d.add(5);
+        d.add(6);
+        d.add(7);
+        d.add(8);
+
+        printTree(d,6, 7);
     }
 
     public static void printTree(AvlTreeOfInteger tree, int son, int element){

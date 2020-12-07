@@ -28,7 +28,7 @@ public class AvlTreeOfInteger {
         if(aux != null)
         {
             if(aux.getLeft() == null && aux.getRight() == null){
-                return 1;
+                return 0;
             }
             else if(aux.getLeft() != null && aux.getRight() == null){
                 return 1 + height(aux.getLeft());
@@ -40,7 +40,7 @@ public class AvlTreeOfInteger {
                 return 1 + Math.max(height(aux.getLeft()), height(aux.getRight()));
             }
         }
-        return 0;
+        return -1;
     }
 
     public boolean isBalanced() {
